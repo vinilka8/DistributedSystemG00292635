@@ -11,7 +11,7 @@ public class Fibonacci extends UnicastRemoteObject implements RemoteFibonacci{
 	
 	
 	protected Fibonacci(int port) throws RemoteException {
-		super(port);
+		super(port); //port number that speak with Servlet port number
 	}
 //	public static void main(String[] args)
 //  {
@@ -24,24 +24,7 @@ public class Fibonacci extends UnicastRemoteObject implements RemoteFibonacci{
 //  	}
 //  }
 
-	public String getFibonacciSequence(int max) throws RemoteException{
-	
-//		if(max == 1 || max == 2){
-//			return new String(str);
-//		}
-//		
-//		public static int fibonacciLoop(int i){
-//			
-//		int fib1 = 1, fib2 = 2, fibonacci = 1;
-//		for(int i = 3; i <= max; i++){
-//			fibonacci = fib1 + fib2;
-//			fib1 = fib2;
-//			fib2 = fibonacci;
-//		}
-//		return fibonacci;
-//    }
-   
-		//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	public String getFibonacciSequence(int max) throws RemoteException{   
         for(int i= 0; i<= max; i++){  
 	        str.append(fibonacciRecusion(i)+",");
          

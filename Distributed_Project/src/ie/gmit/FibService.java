@@ -17,6 +17,7 @@ public class FibService implements RemoteFibonacci{
 	//********************************************************************************
 	//Job STAFF
 	//In-Queue
+	//in-queqe method for generate a rundom number for job number 
 	public int add(int lengNum){
 		int random = new Random().nextInt(1000000000);
 		in_queue.addLast(new FibRequest(random, lengNum));
@@ -40,7 +41,7 @@ public class FibService implements RemoteFibonacci{
 	//********************************************************************************
 
    public void add(int jobNum, String fibonacci){
-	   out_queues.put(jobNum, fibonacci);
+	   out_queues.put(jobNum, fibonacci); //add method for out queues
    }
 
 	@Override
@@ -48,6 +49,8 @@ public class FibService implements RemoteFibonacci{
 		// TODO Auto-generated method stub
 		return out_queues.get(max);
 	}
-  
-	
+//  
+//	public boolean hasFib(int jobNum){
+//		if(out_queues.get(key))
+//	}
 }

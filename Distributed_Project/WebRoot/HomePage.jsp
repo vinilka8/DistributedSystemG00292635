@@ -11,7 +11,7 @@
 	<h1>Chose Length of your fibonacci siqence</h1>
 	  
 	<form action = "FibServlet" method = "GET" style="height: 105px; ">
-		<input type = "hidden" name = "req-leng" value= "add">
+		<input type = "hidden" name = "req-leng" value = "add">
 		<input type = "text" name = "lengNum"><br> value[1-100]<br>
 		<input type = "submit" value = "submit"/>
 	</form>
