@@ -6,7 +6,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class Fibonacci extends UnicastRemoteObject implements RemoteFibonacci{
 	private static final long serialVersionUID = 1L;
 	//private FibRequest fibRequest;
-	StringBuffer str=new StringBuffer();
+	StringBuffer str = new StringBuffer();
 	//int lenght = new Scanner(System.in).nextInt();
 	
 	
@@ -25,20 +25,19 @@ public class Fibonacci extends UnicastRemoteObject implements RemoteFibonacci{
 //  }
 
 	public String getFibonacciSequence(int max) throws RemoteException{   
-        for(int i= 0; i<= max; i++){  
-	        str.append(fibonacciRecusion(i)+",");
-         
-            }
-	    return new String(str);
-		    } 
-			
+	        for(int i = 0; i < max; i++){
+		        str.append(fibonacciRecusion(i) + ",");
+	        }
+		    return new String(str);
+	    } 
+				
 		public static int fibonacciRecusion(int i){
-			if(i==0){
+			if(i == 0){
 				return 0;
-			}else if(i==1){
+			}else if(i == 1){
 				return 1;
 			}
-		return fibonacciRecusion(i-1)+fibonacciRecusion(i-2);
+			return fibonacciRecusion(i - 1) + fibonacciRecusion(i - 2);
 			}
 		}
 	
