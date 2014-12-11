@@ -7,6 +7,6 @@
 	</head>
 	<body >
 		<h3>Results</h3>
-		<%=(String)request.getParameter("fibres")%>
+		<%=request.getParameter("fib")%>
 	</body>
 </html>

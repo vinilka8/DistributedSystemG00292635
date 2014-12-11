@@ -26,20 +26,36 @@ public class Fibonacci extends UnicastRemoteObject implements RemoteFibonacci{
 
 	public String getFibonacciSequence(int max) throws RemoteException{
 	
+//		if(max == 1 || max == 2){
+//			return new String(str);
+//		}
+//		
+//		public static int fibonacciLoop(int i){
+//			
+//		int fib1 = 1, fib2 = 2, fibonacci = 1;
+//		for(int i = 3; i <= max; i++){
+//			fibonacci = fib1 + fib2;
+//			fib1 = fib2;
+//			fib2 = fibonacci;
+//		}
+//		return fibonacci;
+//    }
+   
+		//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         for(int i= 0; i<= max; i++){  
 	        str.append(fibonacciRecusion(i)+",");
          
             }
-   return new String(str);
-    } 
-	
-	public static int fibonacciRecusion(int i){
-		if(i==0){
-			return 0;
-		}else if(i==1){
-			return 1;
-		}
+	    return new String(str);
+		    } 
+			
+		public static int fibonacciRecusion(int i){
+			if(i==0){
+				return 0;
+			}else if(i==1){
+				return 1;
+			}
 		return fibonacciRecusion(i-1)+fibonacciRecusion(i-2);
-	}
-}
+			}
+		}
 	

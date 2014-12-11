@@ -5,13 +5,13 @@
 		<title>Client Fiboncay number Requester</title>
 	</head>
 	
-	<input type = "hidden" name = "req-leng" value= "poll">
-<body onload="poll()">
+	<!-- <input type = "hidden" name = "req-leng" value= "poll"> -->
+<body>
 <h1>fibonacci Request</h1>
 		<h3>Job Number : </h3> 
 		<%=(Integer)request.getAttribute("jobNumber")%>
 		<h3>Page will refresh in 10 seconds.</h3>
-		<% response.addHeader("Refresh","10; http://localhost:8080/Distributed_Project/Result_Page.jsp?fibres="+request.getAttribute("fibres")); %>
+		<% response.addHeader("Refresh","10; http://localhost:8080/Distributed_Project/FibServlet?req-leng=poll&jobNum="+request.getAttribute("jobNumber")); %>
 		</body>
 </html>
 

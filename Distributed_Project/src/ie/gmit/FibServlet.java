@@ -4,6 +4,7 @@ import java.io.*;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.registry.LocateRegistry;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -48,13 +49,16 @@ public class FibServlet extends HttpServlet {
 			throws ServletException, IOException { 
 		
 				//getting parameter from client side, from HomePage.jsp & asign to "value"
-				String value = request.getParameter("lengNum");
-				//adding the "value" of fib lenght number in to the method "add" in FibService and asign to "number"
-				int number = fservice.add(Integer.valueOf(value)); 
 				
+				//adding the "value" of fib lenght number in to the method "add" in FibService and asign to "number"
+				
+		
 				String type=request.getParameter("req-leng");
 				
 				if(type.equals("add")){
+					
+					String value = request.getParameter("lengNum");
+					int number = fservice.add(Integer.valueOf(value)); 
 					System.out.println("going to add sth");
 					request.setAttribute("jobNumber", number);
 			        System.out.println("going to jum! ");
@@ -63,7 +67,7 @@ public class FibServlet extends HttpServlet {
 						
 						String fibRes = String.valueOf(fibonacci.getFibonacciSequence(Integer.valueOf(value)));
 						fservice.add(number,fibRes);
-						request.setAttribute("fibres", fibRes);
+						//request.setAttribute("jobNum", number);
 					} catch (NotBoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -76,6 +80,20 @@ public class FibServlet extends HttpServlet {
 //			        	dispat.forward(request, response);
 //			        }
 			        System.out.println("done");
+					
+				}else if (type.equals("poll")){
+					System.out.println("this is poll");
+					String rType=fservice.getResult(Integer.valueOf(request.getParameter("jobNum")));
+					System.out.println(rType);
+					
+					if(rType!=null){
+						//request.setAttribute("fib",rType);
+						response.sendRedirect("Result_Page.jsp?fib="+rType);
+					}else{
+						System.out.println("here you go");
+						response.sendRedirect("Request_Page.jsp");
+
+					}
 					
 				}
 				//asign a "number" by using setAttribute that has been in random method in service => 
