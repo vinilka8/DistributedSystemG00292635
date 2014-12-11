@@ -59,9 +59,9 @@ public class FibServlet extends HttpServlet {
 					request.setAttribute("jobNumber", number);
 			        System.out.println("going to jum! ");
 			        try {
-						RemoteFibonacci fibonacci=(RemoteFibonacci)Naming.lookup("rmi://localhost:1099/remote");
+						RemoteFibonacci fibonacci = (RemoteFibonacci)Naming.lookup("rmi://localhost:1099/remote");
 						
-						String fibRes=String.valueOf(fibonacci.getFibonacciSequence(Integer.valueOf(value)));
+						String fibRes = String.valueOf(fibonacci.getFibonacciSequence(Integer.valueOf(value)));
 						fservice.add(number,fibRes);
 						request.setAttribute("fibres", fibRes);
 					} catch (NotBoundException e) {
@@ -70,6 +70,7 @@ public class FibServlet extends HttpServlet {
 					}
 			        //request.getRequestDispatcher("Request_Page.jsp").forward(request, response);
 			        //
+			        System.out.println("Hi there");
 			         request.getRequestDispatcher("Request_Page.jsp").forward(request, response);;
 //			        if(dispat != null){
 //			        	dispat.forward(request, response);
